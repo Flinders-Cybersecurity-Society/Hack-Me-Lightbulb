@@ -1,0 +1,15 @@
+ SET @@AUTOCOMMIT = 1;
+DROP DATABASE IF EXISTS oweek_db;
+CREATE DATABASE oweek_db;
+USE oweek_db;
+ 
+CREATE TABLE players (
+ user_id INT NOT NULL AUTO_INCREMENT,
+ username TEXT NOT NULL,
+ task1 tinyint(1) NOT NULL DEFAULT '0',
+ task2 tinyint(1) NOT NULL DEFAULT '0',
+ task3 tinyint(1) NOT NULL DEFAULT '0',
+ timeStart datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ PRIMARY KEY (`user_id`)
+) AUTO_INCREMENT= 1;
+
