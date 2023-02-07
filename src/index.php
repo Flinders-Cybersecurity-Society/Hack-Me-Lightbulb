@@ -12,7 +12,7 @@
 <body>
 <h1>hello</h1>
 
-<form action=playerVerify.php method="POST">
+<form action=scripts/playerVerify.php method="POST">
 <ul>
     <li>
     Enter your cool hacker name: <input type="text" class="inputBox" id="usernameInput" name="usernameInput" placeholder="Required"required autocomplete="off">
