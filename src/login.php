@@ -12,7 +12,7 @@
 <body>
 <h1>Log In</h1>
 
-<form action=loginVerify.php method="POST">
+<form action=scripts/loginVerify.php method="POST">
 <ul>
     <li>
     Username: <input type="text" class="inputBox" id="usernameInput" name="usernameInput" placeholder="Required"required autocomplete="off">
