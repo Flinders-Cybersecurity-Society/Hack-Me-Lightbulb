@@ -16,7 +16,7 @@ if (!isset($_SESSION['loggedin'])) {
 ?>
 
 <header class="bg-indigo-600">
-  <link href="http://localhost/o-week/output.css" rel="stylesheet">
+<link href="../output.css" rel="stylesheet">
   <nav class="mx-auto max-w-7xl px-6 lg:px-8" aria-label="Top">
     <div class="flex w-full items-center justify-between border-b border-indigo-500 py-6 lg:border-none">
       <div class="flex items-center">

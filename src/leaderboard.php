@@ -6,7 +6,7 @@
     <meta name="author" contents="regform">
     <meta name="description" contents="login">
     <title>Login</title>
-    <!-- <link rel="stylesheet" href="../output.css"> -->
+    <link href="../output.css" rel="stylesheet">
     <!-- <link rel="stylesheet" href="temp.css"> -->
 </head>
 <body>
