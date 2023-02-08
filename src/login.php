@@ -15,6 +15,13 @@ require_once 'header.php';
     <!-- <link rel="stylesheet" href="temp.css"> -->
 </head>
 <body>
+
+<?php
+if (($_GET["loggedin"]) == "true"){
+    header("location: light-control.php?loggedin=true");
+}
+?>
+
 <h1>Log In</h1>
 
 <form action=scripts/loginVerify.php method="POST">
