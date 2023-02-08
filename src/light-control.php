@@ -21,8 +21,8 @@
 
 
 <?php
-if (($_GET["loggedin"]) == "false"){
-    header("location: login.php?loggedin=false");
+if (($_SESSION["loggedin"]) == false){
+    header("location: login.php");
 }
 ?>
 <!-- not really necessary, but this if statement makes it so if you change the loggedin= back to false 

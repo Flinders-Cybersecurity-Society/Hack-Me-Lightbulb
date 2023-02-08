@@ -6,10 +6,13 @@ if (session_status() === PHP_SESSION_NONE) {
   session_start();
 }
 
-// $_SESSION['loggedin'] = true; //REMOVE THIS LATER
 
-if (isset($_SESSION['Email'])) {
+
+if (!isset($_SESSION['loggedin'])) {
+  $_SESSION['loggedin'] = false;
 }
+
+
 ?>
 
 <header class="bg-indigo-600">
@@ -25,12 +28,11 @@ if (isset($_SESSION['Email'])) {
       </div>
       <div class="ml-10 space-x-4">
         <?php
-
         if ($_SESSION['loggedin']) {
           echo '<a href="scripts/logout.php" class="inline-block rounded-md border border-transparent bg-white py-2 px-4 text-base font-medium text-indigo-600 hover:bg-indigo-50">Log Out</a>';
           
         } else {
-          echo '<a href="#" class="inline-block rounded-md border border-transparent bg-indigo-500 py-2 px-4 text-base font-medium text-white hover:bg-opacity-75">Sign in</a>';
+          echo '<a href="login.php" class="inline-block rounded-md border border-transparent bg-indigo-500 py-2 px-4 text-base font-medium text-white hover:bg-opacity-75">Sign in</a>';
         }
 
         ?>
