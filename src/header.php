@@ -22,7 +22,7 @@ if (!isset($_SESSION['loggedin'])) {
       <div class="flex items-center">
         <a href="#">
           <span class="sr-only">Flinders Cyber Society</span>
-          <img class="h-10 w-auto" src="electric-light-bulb_1f4a1.png" alt="website icon">
+          <img class="h-10 w-auto" src="images/electric-light-bulb_1f4a1.png" alt="website icon">
         </a>
 
       </div>
