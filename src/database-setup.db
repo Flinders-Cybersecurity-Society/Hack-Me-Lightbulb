@@ -10,6 +10,8 @@ CREATE TABLE players (
  task2 tinyint(1) NOT NULL DEFAULT '0',
  task3 tinyint(1) NOT NULL DEFAULT '0',
  timeStart datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ uuid TEXT NOT NULL,
+ last_updated datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
  PRIMARY KEY (`user_id`)
 ) AUTO_INCREMENT= 1;
 
