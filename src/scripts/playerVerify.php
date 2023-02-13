@@ -1,5 +1,6 @@
-session_start();
+
 <?php
+session_start();
 echo 'please go back and enter your name';
 
 function guidv4($data = null) {
@@ -19,6 +20,7 @@ function guidv4($data = null) {
 if (isset($_POST["playerName"])){
     require_once "dbconn.php";
     $myuuid = guidv4();
+    $_SESSION["uuid"] = $myuuid;
     $sql = "INSERT INTO players(username, uuid) VALUES(?,?);";
     $statement = mysqli_stmt_init($conn);
     mysqli_stmt_prepare($statement, $sql);

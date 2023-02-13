@@ -1,6 +1,7 @@
 <?php
 require_once 'header.php';
-
+require_once "scripts/dbconn.php";
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -18,10 +19,26 @@ require_once 'header.php';
 <body>
 
     <?php
+    echo $_SESSION["uuid"];
     if (isset($_GET["loggedin"])) {
         if (($_GET["loggedin"]) == "true") {
             $_SESSION['loggedin'] = true;
-            header("location: light-control.php");
+            $sql = "UPDATE players SET task2 = '1', last_updated = CURRENT_TIMESTAMP WHERE uuid = '" . $_SESSION["uuid"] . " ';";
+            $statement = mysqli_stmt_init($conn);
+            // $result = mysqli_query($conn, $sql);
+
+            if ($result = mysqli_query($conn, $sql)) {
+                    header("location: light-control.php");
+                end();
+            }
+            else {
+                header("location: index.php");
+                echo mysqli_error($conn);
+                echo $sql;
+                end();
+            }
+            mysqli_close($conn);
+
         }
     } else {
         header("location: login.php?loggedin=false");
