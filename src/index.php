@@ -66,26 +66,26 @@
               <h3 class="text-2xl font-medium leading-6 text-gray-900" id="modal-title">What's the Goal?</h3>
               <div class="mt-2">
                 <p class="text-lg text-gray-500">Find as many ways as possible to get past the login box and be able to control the light. <br><br>
-                  Finding all the possible ways to get into a system is one of the roles of security auditors and hakers alike.
+                  Finding all the possible ways to get into a system is one of the roles of security auditors and hackers alike.
                 </p>
               </div>
             </div>
           </div>
 
           <div id="slide-4" hidden>
-            <img class="items-center justify-center" src="images/CySoc-Small.png">
+            <img class="items-center justify-center" src="images/hacker.gif">
             <div class="mt-3 text-center sm:mt-5">
               <h3 class="text-2xl font-medium leading-6 text-gray-900" id="modal-title">Enter your cool hacker name below!</h3>
               <div class="mt-2">
                 <p class="text-lg text-gray-500">
 
                 <div>
-                  <label for="email" class="block text-sm font-medium text-gray-700">Username</label>
+                  <label for="email" class="block text-sm font-medium text-gray-700">Name:</label>
                   <form action="scripts/playerVerify.php" method="POST">
                     <div class="mt-1">
                       <input type="text" name="playerName" id="usernameInput" required class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Extreme Hacker Person 4000">
                     </div>
-                    <button type="submit" id="submit-button" class="mt-5 sm:mt-6 inline-flex w-full justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:text-sm">Submit</button>
+                    <button type="submit" id="submit-button" class="mt-5 sm:mt-6 inline-flex w-full justify-center rounded-md border border-transparent bg-[#22c55e] px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:text-sm">Get Started</button>
                   </form>
                 </div>
 

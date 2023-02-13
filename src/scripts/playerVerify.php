@@ -14,7 +14,7 @@ if (isset($_POST["playerName"])){
 
     if (mysqli_stmt_execute($statement)) {
         // $success = "Account created! Click here to login";
-        header("location: ../login.php?loggedin=false");
+        header("location: ../login.php");
         end();
     }
     else {
