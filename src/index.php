@@ -1,3 +1,7 @@
+<?php
+session_start();
+$_SESSION['loginAttempt'] = 'default';
+?>
 <!DOCTYPE html>
 <html lang="en">
 

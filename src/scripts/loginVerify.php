@@ -38,7 +38,7 @@ $password = $_POST["passwordInput"];
 
 
     if ($result = mysqli_query($conn, $sql)) {
-        $success = "Account created! Click here to login";
+        $_SESSION['loginAttempt'] = 'succeeded';
         header("location: ../light-control.php");
         end();
     }
@@ -68,7 +68,7 @@ else if ($username == $injectionUsername){
  
 
     if ($result = mysqli_query($conn, $sql)) {
-        $success = "Account created! Click here to login";
+        $_SESSION['loginAttempt'] = 'succeeded';
         header("location: ../light-control.php");
         end();
     }
@@ -81,6 +81,7 @@ else if ($username == $injectionUsername){
     mysqli_close($conn);
 }
 else{
+    $_SESSION['loginAttempt'] = 'failed';
     header("location: ../login.php");
 }
 

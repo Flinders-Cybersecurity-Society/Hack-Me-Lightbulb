@@ -118,6 +118,15 @@ session_start();
                     </button>
                 </div>
             </form>
+            <?php
+            if($_SESSION['loginAttempt']=='failed'){
+            echo '
+            <div class="group relative flex w-full justify-center rounded-md border border-transparent bg-yellow-500  py-2 px-4 text-m font-medium text-black">
+            
+            Username or password incorrect! Please try again.
+            </div>
+            ';}
+            ?>
         </div>
     </div>
 
