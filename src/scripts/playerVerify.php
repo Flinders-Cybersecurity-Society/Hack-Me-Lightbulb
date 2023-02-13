@@ -29,21 +29,7 @@ if (isset($_POST["playerName"])){
 
     if (mysqli_stmt_execute($statement)) {
         // $success = "Account created! Click here to login";
-
-        // $sql = "SELECT user_id FROM players WHERE VALUES(?);";
-        // $statement = mysqli_stmt_init($conn);
-        // mysqli_stmt_prepare($statement, $sql);
-        // //mysqli_stmt_bind_param($statement, 's', htmlspecialchars($_POST["playerName"]));
-        // $result = mysqli_query($conn, $sql);
-        // $row = mysqli_fetch_assoc($result);
-
-
-        // $_SESSION['user_id'] = 
-        
-        //above code is an attempt to set a unique session variable so we can check off tasks
-        
-        $_SESSION['tasksCompleted'] = "0";
-        header("location: ../login.php?loggedin=false");
+        header("location: ../login.php");
         end();
     }
     else {

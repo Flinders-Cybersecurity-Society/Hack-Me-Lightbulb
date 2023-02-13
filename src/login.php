@@ -71,7 +71,7 @@ require_once 'header.php';
         <div class="w-full max-w-md space-y-8">
             <div>
                 <img class="mx-auto h-12 w-auto" src="images/electric-light-bulb_1f4a1.png" alt="Your Company">
-                <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Sign in to your account</h2>
+                <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Login Required</h2>
 
             </div>
             <form class="mt-8 space-y-6" action=scripts/loginVerify.php method="POST">
