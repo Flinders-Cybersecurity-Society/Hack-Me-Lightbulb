@@ -63,8 +63,6 @@ if (isset($_POST["playerName"])){
     $statement = mysqli_stmt_init($conn);
     mysqli_stmt_prepare($statement, $sql);
     mysqli_stmt_bind_param($statement, 'ss', htmlspecialchars($_POST["playerName"]), $myuuid);
-    $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_assoc($result);
 
 
     if (mysqli_stmt_execute($statement)) {

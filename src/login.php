@@ -2,6 +2,9 @@
 require_once 'header.php';
 require_once "scripts/dbconn.php";
 session_start();
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 ?>
 
 <!DOCTYPE html>
@@ -21,19 +24,21 @@ session_start();
     if (isset($_GET["loggedin"])) {
         if (($_GET["loggedin"]) == "true") {
             $_SESSION['loggedin'] = true;
-            $sql = "UPDATE players SET task2 = '1', last_updated = CURRENT_TIMESTAMP WHERE uuid = '" . $_SESSION["uuid"] . " ';";
+            $sql = "UPDATE players SET task2 = '1', last_updated = CURRENT_TIMESTAMP WHERE uuid = '" . $_SESSION["uuid"] . "';";
+            echo "<br>" . $sql . "<br>";
             $statement = mysqli_stmt_init($conn);
-            // $result = mysqli_query($conn, $sql);
-
-            if ($result = mysqli_query($conn, $sql)) {
+            mysqli_stmt_prepare($statement, $sql);
+            if (mysqli_stmt_execute($statement)) {
                     header("location: light-control.php");
-                end();
+                    echo "sql sent";
             }
             else {
+                echo "sql not sent";
+
                 header("location: index.php");
                 echo mysqli_error($conn);
                 echo $sql;
-                end();
+
             }
             mysqli_close($conn);
 
