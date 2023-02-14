@@ -8,7 +8,7 @@ session_start();
 if (isset($_POST["cf-turnstile-response"])) {
     $captcha = $_POST["cf-turnstile-response"];
     $secretKey = "0x4AAAAAAACf-Sk_DPk2KvjXDYGsJO9UQGM"; //DO NOT EXPOSE THIS TO THE PUBLIC
-    $secretKey = "1x0000000000000000000000000000000AA" //comment this line out when deploying on server
+    $secretKey = "1x0000000000000000000000000000000AA"; //comment this line out when deploying on server
     $ip = "oweek.flinderscybersociety.org";
 
     $url_path = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
