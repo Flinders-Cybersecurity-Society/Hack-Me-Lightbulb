@@ -3,10 +3,12 @@
 session_start();
 
 
-
+//TO TEST LOCALLY CHANGE $secretKey to: 1x0000000000000000000000000000000AA
+//YOU WILL ALSO NEED TO CHANGE data-sitekey in  index.php (line 75ish) to: 1x00000000000000000000AA
 if (isset($_POST["cf-turnstile-response"])) {
     $captcha = $_POST["cf-turnstile-response"];
-    $secretKey = "0x4AAAAAAACf-Sk_DPk2KvjXDYGsJO9UQGM";
+    $secretKey = "0x4AAAAAAACf-Sk_DPk2KvjXDYGsJO9UQGM"; //DO NOT EXPOSE THIS TO THE PUBLIC
+    $secretKey = "1x0000000000000000000000000000000AA" //comment this line out when deploying on server
     $ip = "oweek.flinderscybersociety.org";
 
     $url_path = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
