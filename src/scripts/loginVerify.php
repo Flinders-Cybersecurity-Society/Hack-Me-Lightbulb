@@ -27,7 +27,7 @@ $password = $_POST["passwordInput"];
     $updateDate = GETDATE();
     $check =  1;
     
-    $sql = "UPDATE players SET task1 = '1', last_updated = CURRENT_TIMESTAMP WHERE uuid = '" . $_SESSION["uuid"] . " ';";
+    $sql = "UPDATE players SET task1 = '1', last_updated = CURRENT_TIMESTAMP WHERE uuid = '" . $_SESSION["uuid"] . "';";
     echo $sql;
    
     $statement = mysqli_stmt_init($conn);
@@ -61,7 +61,7 @@ else if ($username == $injectionUsername){
     $_SESSION["loggedin"] = true;
     
     
-   $sql = "UPDATE players SET task3 = '1', last_updated = CURRENT_TIMESTAMP WHERE uuid = '" . $_SESSION["uuid"] . " ';";
+   $sql = "UPDATE players SET task3 = '1', last_updated = CURRENT_TIMESTAMP WHERE uuid = '" . $_SESSION["uuid"] . "';";
     echo $sql;
    
     $statement = mysqli_stmt_init($conn);
