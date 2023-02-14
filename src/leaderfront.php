@@ -6,7 +6,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<link href="../output.css" rel="stylesheet">
+<link href="output.css" rel="stylesheet">
 
 <head>
     <meta charset="utf-8">

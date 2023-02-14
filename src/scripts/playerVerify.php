@@ -1,7 +1,43 @@
 
 <?php
 session_start();
-echo 'please go back and enter your name';
+
+
+
+if (isset($_POST["cf-turnstile-response"])) {
+    $captcha = $_POST["cf-turnstile-response"];
+    $secretKey = "0x4AAAAAAACf-Sk_DPk2KvjXDYGsJO9UQGM";
+    $ip = "oweek.flinderscybersociety.org";
+
+    $url_path = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
+    $data = array('secret' => $secretKey, 'response' => $captcha, 'remoteip' => $ip);
+
+    $options = array(
+        'http' => array(
+            'method' => 'POST',
+            'content' => http_build_query($data)
+        )
+    );
+
+    $stream = stream_context_create($options);
+
+    $result = file_get_contents(
+        $url_path,
+        false,
+        $stream
+    );
+
+    $response =  $result;
+
+    $responseKeys = json_decode($response, true);
+
+    if (intval($responseKeys["success"]) !== 1) {
+        header("location: ../index.php"); //Captcha failed, redirect user to index.php
+
+    } else {
+        echo "you have been verified as a human"; //verified as human, continue with playerverify.php
+    }
+}
 
 function guidv4($data = null) {
     // Generate 16 bytes (128 bits) of random data or use the data passed into the function.
@@ -30,20 +66,16 @@ if (isset($_POST["playerName"])){
 
 
     if (mysqli_stmt_execute($statement)) {
-        // $success = "Account created! Click here to login";
-        header("location: ../login.php");
+        header("location: ../login.php"); //success, redirect to login page
         end();
     }
     else {
-        header("location: ../index.php");
+        header("location: ../index.php"); //failed to insert into db, return to index.php
         echo mysqli_error($conn);
         end();
     }
     mysqli_close($conn);
 
-
 }
-
-
 
 ?>

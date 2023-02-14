@@ -12,8 +12,6 @@ session_start();
     <meta name="author" contents="regform">
     <meta name="description" contents="login">
     <title>Login</title>
-    <!-- <link rel="stylesheet" href="../output.css"> -->
-    <!-- <link rel="stylesheet" href="temp.css"> -->
 </head>
 
 <body>
@@ -46,44 +44,6 @@ session_start();
 
     ?>
 
-    <!-- <h1>Log In</h1>
-
-    <form action=scripts/loginVerify.php method="POST">
-        <ul>
-            <li>
-                Username: <input type="text" class="inputBox" id="usernameInput" name="usernameInput" placeholder="Required" required autocomplete="off">
-            </li>
-            <li>
-                Password: <input type="password" class="inputBox" id="passwordInput" name="passwordInput" placeholder="Required" required autocomplete="off">
-            </li>
-            <li>
-                <input type="submit" class="listSubmit" id="loginButton" name="loginInput" value="Log In"></button>
-            </li>
-
-    </form> -->
-
-    <!--
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
--->
-    <!--
-  This example requires updating your template:
-
-  ```
-  <html class="h-full bg-gray-50">
-  <body class="h-full">
-  ```
--->
     <div class="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div class="w-full max-w-md space-y-8">
             <div>
