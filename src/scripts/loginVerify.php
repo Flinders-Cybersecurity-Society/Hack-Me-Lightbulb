@@ -40,6 +40,10 @@ $injectionInput = substr($username, -11);
 
 
     if ($result = mysqli_query($conn, $sql)) {
+        $url = 'http://localhost/o-week/src/api/board-change.php';
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, $url);
+        $data = curl_exec($curl);
         $_SESSION['loginAttempt'] = 'succeeded';
         header("location: ../light-control.php");
         end();
@@ -70,6 +74,10 @@ else if ($injectionInput == $injectionUsername){
  
 
     if ($result = mysqli_query($conn, $sql)) {
+        $url = 'http://localhost/o-week/src/api/board-change.php';
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, $url);
+        $data = curl_exec($curl);
         $_SESSION['loginAttempt'] = 'succeeded';
         header("location: ../light-control.php");
         end();

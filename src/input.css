@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+#confetti-canvas {
+    position:absolute;
+    top:0;
+  }
