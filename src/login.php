@@ -29,6 +29,10 @@ error_reporting(E_ALL);
             $statement = mysqli_stmt_init($conn);
             mysqli_stmt_prepare($statement, $sql);
             if (mysqli_stmt_execute($statement)) {
+                $url = 'http://localhost/o-week/src/api/board-change.php';
+                $curl = curl_init();
+                curl_setopt($curl, CURLOPT_URL, $url);
+                $data = curl_exec($curl);
                     header("location: light-control.php");
                     echo "sql sent";
             }

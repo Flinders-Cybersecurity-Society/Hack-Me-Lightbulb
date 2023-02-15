@@ -13,8 +13,6 @@
     <meta name="author" contents="regform">
     <meta name="description" contents="login">
     <title>Leaderbord</title>
-    <!-- <link rel="stylesheet" href="../output.css"> -->
-    <!-- <link rel="stylesheet" href="temp.css"> -->
 </head>
 
 <body>

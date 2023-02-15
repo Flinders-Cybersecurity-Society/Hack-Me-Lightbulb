@@ -11,7 +11,7 @@ error_reporting(E_ALL);
 if (isset($_POST["cf-turnstile-response"])) {
     $captcha = $_POST["cf-turnstile-response"];
     $secretKey = "0x4AAAAAAACf-Sk_DPk2KvjXDYGsJO9UQGM"; //DO NOT EXPOSE THIS TO THE PUBLIC
-    //$secretKey = "1x0000000000000000000000000000000AA"; //comment this line out when deploying on server
+    $secretKey = "1x0000000000000000000000000000000AA"; //comment this line out when deploying on server
     $ip = "oweek.flinderscybersociety.org";
 
     $url_path = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
@@ -80,5 +80,13 @@ if (isset($_POST["playerName"])){
     mysqli_close($conn);
 
 }
+
+
+$url = 'http://localhost/o-week/src/api/board-change.php';
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_URL, $url);
+$data = curl_exec($curl);
+
+
 
 ?>

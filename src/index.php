@@ -73,7 +73,7 @@ $_SESSION['loginAttempt'] = 'default';
                       <input type="text" name="playerName" id="usernameInput" required class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Extreme Hacker Person 4000">
                     </div>
                     <!-- sitekey: 0x4AAAAAAACf-Rp-1xKcOoEh (safe to expose to public) -->
-                    <div class="cf-turnstile inline-block pt-3" data-sitekey="0x4AAAAAAACf-Rp-1xKcOoEh"></div>
+                    <div class="cf-turnstile inline-block pt-3" data-sitekey="1x00000000000000000000AA"></div>
                     <button type="submit" id="submit-button" class="mt-5 sm:mt-6 inline-flex w-full justify-center rounded-md border border-transparent bg-[#22c55e] px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:text-sm">Get Started</button>
                   </form>
                 </div>
