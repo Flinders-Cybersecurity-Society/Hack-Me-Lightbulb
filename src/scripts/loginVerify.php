@@ -10,11 +10,13 @@ if (isset($_POST["usernameInput"])){
 $defaultUsername = "admin";
 $defaultPassword = "admin";
 
-$injectionUsername = "a";
+
 
 $username = $_POST["usernameInput"];
 $password = $_POST["passwordInput"];
 
+$injectionUsername = "' OR '1'='1";
+$injectionInput = substr($username, -11);
 
 // if ($username = $defaultUsername && $password = $defaultPassword){
     if ($username == $defaultUsername && $password == $defaultPassword){  
@@ -59,7 +61,7 @@ $password = $_POST["passwordInput"];
 
 
 }
-else if ($username == $injectionUsername){
+else if ($injectionInput == $injectionUsername){
         
     $_SESSION["username"] = $username;
     $_SESSION["loggedin"] = true;
