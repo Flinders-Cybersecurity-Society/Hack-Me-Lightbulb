@@ -1,7 +1,7 @@
 <?php
 require_once 'header.php';
 require_once "scripts/dbconn.php";
-session_start();
+//session_start();
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -20,12 +20,12 @@ error_reporting(E_ALL);
 <body>
 
     <?php
-    echo $_SESSION["uuid"];
+    //echo $_SESSION["uuid"];
     if (isset($_GET["loggedin"])) {
         if (($_GET["loggedin"]) == "true") {
             $_SESSION['loggedin'] = true;
             $sql = "UPDATE players SET task2 = '1', last_updated = CURRENT_TIMESTAMP WHERE uuid = '" . $_SESSION["uuid"] . "';";
-            echo "<br>" . $sql . "<br>";
+            //echo "<br>" . $sql . "<br>";
             $statement = mysqli_stmt_init($conn);
             mysqli_stmt_prepare($statement, $sql);
             if (mysqli_stmt_execute($statement)) {
@@ -94,7 +94,7 @@ error_reporting(E_ALL);
             ?>
         </div>
     </div>
-
+   <img class="mx-auto h-14 w-auto" src="images/sitemagicLOGO.png" alt="Your Company">
 
 
 </body>
