@@ -5,7 +5,7 @@ var stopConfetti; //call to stop adding confetti
 var toggleConfetti; //call to start or stop the confetti animation depending on whether it's already running
 var removeConfetti; //call to stop the confetti animation and remove all confetti immediately
 
-(function() {
+(function () {
 	startConfetti = startConfettiInner;
 	stopConfetti = stopConfettiInner;
 	toggleConfetti = toggleConfettiInner;
@@ -15,7 +15,7 @@ var removeConfetti; //call to stop the confetti animation and remove all confett
 	var animationTimer = null;
 	var particles = [];
 	var waveAngle = 0;
-	
+
 	function resetParticle(particle, width, height) {
 		particle.color = colors[(Math.random() * colors.length) | 0];
 		particle.x = Math.random() * width;
@@ -30,7 +30,7 @@ var removeConfetti; //call to stop the confetti animation and remove all confett
 	function startConfettiInner() {
 		var width = window.innerWidth;
 		var height = window.innerHeight;
-		window.requestAnimFrame = (function() {
+		window.requestAnimFrame = (function () {
 			return window.requestAnimationFrame ||
 				window.webkitRequestAnimationFrame ||
 				window.mozRequestAnimationFrame ||
@@ -48,7 +48,7 @@ var removeConfetti; //call to stop the confetti animation and remove all confett
 			document.body.appendChild(canvas);
 			canvas.width = width;
 			canvas.height = height;
-			window.addEventListener("resize", function() {
+			window.addEventListener("resize", function () {
 				canvas.width = window.innerWidth;
 				canvas.height = window.innerHeight;
 			}, true);
