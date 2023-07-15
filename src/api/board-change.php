@@ -1,4 +1,5 @@
 <?php 
+header("Access-Control-Allow-Origin: *");
 
 require_once "../scripts/dbconn.php";
 

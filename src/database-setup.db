@@ -1,4 +1,4 @@
- SET @@AUTOCOMMIT = 1;
+SET @@AUTOCOMMIT = 1;
 DROP DATABASE IF EXISTS oweek_db;
 CREATE DATABASE oweek_db;
 USE oweek_db;
@@ -15,3 +15,10 @@ CREATE TABLE players (
  PRIMARY KEY (`user_id`)
 ) AUTO_INCREMENT= 1;
 
+
+CREATE TABLE api (
+  id int NOT NULL AUTO_INCREMENT,
+  item text NOT NULL,
+  status tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) AUTO_INCREMENT= 1;

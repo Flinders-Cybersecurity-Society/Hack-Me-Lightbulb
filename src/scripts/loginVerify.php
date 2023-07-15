@@ -1,103 +1,94 @@
 <?php
+
 session_start();
 
-if (isset($_POST["usernameInput"])){
-    
- require_once "dbconn.php";
+if (isset($_POST["usernameInput"])) {
 
-  
-
-$defaultUsername = "admin";
-$defaultPassword = "admin";
+    require_once "dbconn.php";
 
 
 
-$username = $_POST["usernameInput"];
-$password = $_POST["passwordInput"];
-
-$injectionUsername = "' OR '1'='1";
-$injectionInput = substr($username, -11);
-
-// if ($username = $defaultUsername && $password = $defaultPassword){
-    if ($username == $defaultUsername && $password == $defaultPassword){  
-          
-    $_SESSION["username"] = $username;
-    $_SESSION["loggedin"] = true;
-    
-    
-
-    $updateDate = GETDATE();
-    $check =  1;
-    
-    $sql = "UPDATE players SET task1 = '1', last_updated = CURRENT_TIMESTAMP WHERE uuid = '" . $_SESSION["uuid"] . "';";
-    echo $sql;
-   
-    $statement = mysqli_stmt_init($conn);
-    // mysqli_stmt_prepare($statement, $sql);
-    // mysqli_stmt_bind_param($statement, 'ss', $check, $updateDate );
-    // $result = mysqli_query($conn, $sql);
-    // $row = mysqli_fetch_assoc($result);
+    $defaultUsername = "admin";
+    $defaultPassword = "admin";
 
 
-    if ($result = mysqli_query($conn, $sql)) {
-        $url = 'http://localhost/o-week/src/api/board-change.php';
-        $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, $url);
-        $data = curl_exec($curl);
-        $_SESSION['loginAttempt'] = 'succeeded';
-        header("location: ../light-control.php");
-        end();
-    }
-    else {
-        header("location: ../index.php");
-        echo mysqli_error($conn);
+
+    $username = $_POST["usernameInput"];
+    $password = $_POST["passwordInput"];
+
+    $injectionUsername = "' OR '1'='1";
+    $injectionInput = substr($username, -11);
+
+    // if ($username = $defaultUsername && $password = $defaultPassword){
+    if ($username == $defaultUsername && $password == $defaultPassword) {
+
+        $_SESSION["username"] = $username;
+        $_SESSION["loggedin"] = true;
+
+
+
+        $updateDate = GETDATE();
+        $check =  1;
+
+        $sql = "UPDATE players SET task1 = '1', last_updated = CURRENT_TIMESTAMP WHERE uuid = '" . $_SESSION["uuid"] . "';";
         echo $sql;
-        end();
-    }
-    mysqli_close($conn);
-   
-//the above code is an attempt to add a check that marks off task 1, it requires a session variable to exist that 
-//can be used by an sql statement to id the user
+
+        $statement = mysqli_stmt_init($conn);
+        // mysqli_stmt_prepare($statement, $sql);
+        // mysqli_stmt_bind_param($statement, 'ss', $check, $updateDate );
+        // $result = mysqli_query($conn, $sql);
+        // $row = mysqli_fetch_assoc($result);
 
 
-}
-else if ($injectionInput == $injectionUsername){
-        
-    $_SESSION["username"] = $username;
-    $_SESSION["loggedin"] = true;
-    
-    
-   $sql = "UPDATE players SET task3 = '1', last_updated = CURRENT_TIMESTAMP WHERE uuid = '" . $_SESSION["uuid"] . "';";
-    echo $sql;
-   
-    $statement = mysqli_stmt_init($conn);
- 
+        if ($result = mysqli_query($conn, $sql)) {
+            $url = 'https://oweek.flinderscybersociety.org/api/board-change.php';
+            $curl = curl_init();
+            curl_setopt($curl, CURLOPT_URL, $url);
+            $data = curl_exec($curl);
+            $_SESSION['loginAttempt'] = 'succeeded';
+            header("location: ../light-control.php");
+            end();
+        } else {
+            header("location: ../index.php");
+            echo mysqli_error($conn);
+            echo $sql;
+            end();
+        }
+        mysqli_close($conn);
 
-    if ($result = mysqli_query($conn, $sql)) {
-        $url = 'http://localhost/o-week/src/api/board-change.php';
-        $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, $url);
-        $data = curl_exec($curl);
-        $_SESSION['loginAttempt'] = 'succeeded';
-        header("location: ../light-control.php");
-        end();
-    }
-    else {
-        header("location: ../index.php");
-        echo mysqli_error($conn);
+        //the above code is an attempt to add a check that marks off task 1, it requires a session variable to exist that 
+        //can be used by an sql statement to id the user
+
+
+    } else if (str_contains($username, "OR 1=1") == true || str_contains($username,  "OR 1==1") == true) {
+
+        $_SESSION["username"] = $username;
+        $_SESSION["loggedin"] = true;
+
+
+        $sql = "UPDATE players SET task3 = '1', last_updated = CURRENT_TIMESTAMP WHERE uuid = '" . $_SESSION["uuid"] . "';";
         echo $sql;
-        end();
+
+        $statement = mysqli_stmt_init($conn);
+
+
+        if ($result = mysqli_query($conn, $sql)) {
+            $url = 'https://oweek.flinderscybersociety.org/api/board-change.php';
+            $curl = curl_init();
+            curl_setopt($curl, CURLOPT_URL, $url);
+            $data = curl_exec($curl);
+            $_SESSION['loginAttempt'] = 'succeeded';
+            header("location: ../light-control.php");
+            end();
+        } else {
+            header("location: ../index.php");
+            echo mysqli_error($conn);
+            echo $sql;
+            end();
+        }
+        mysqli_close($conn);
+    } else {
+        $_SESSION['loginAttempt'] = 'failed';
+        header("location: ../login.php");
     }
-    mysqli_close($conn);
 }
-else{
-    $_SESSION['loginAttempt'] = 'failed';
-    header("location: ../login.php");
-}
-
-}
-
-
-
-
-?>

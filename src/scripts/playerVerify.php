@@ -1,16 +1,13 @@
 
 <?php
 session_start();
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+
 
 
 //TO TEST LOCALLY CHANGE $secretKey to: 1x0000000000000000000000000000000AA
 //YOU WILL ALSO NEED TO CHANGE data-sitekey in  index.php (line 75ish) to: 1x00000000000000000000AA
 if (isset($_POST["cf-turnstile-response"])) {
     $captcha = $_POST["cf-turnstile-response"];
-    $secretKey = "0x4AAAAAAACf-Sk_DPk2KvjXDYGsJO9UQGM"; //DO NOT EXPOSE THIS TO THE PUBLIC
     $secretKey = "1x0000000000000000000000000000000AA"; //comment this line out when deploying on server
     $ip = "oweek.flinderscybersociety.org";
 
@@ -44,7 +41,8 @@ if (isset($_POST["cf-turnstile-response"])) {
     }
 }
 
-function guidv4($data = null) {
+function guidv4($data = null)
+{
     // Generate 16 bytes (128 bits) of random data or use the data passed into the function.
     $data = $data ?? random_bytes(16);
     assert(strlen($data) == 16);
@@ -58,7 +56,7 @@ function guidv4($data = null) {
     return vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4));
 }
 
-if (isset($_POST["playerName"])){
+if (isset($_POST["playerName"])) {
     require_once "dbconn.php";
     $myuuid = guidv4();
     $_SESSION["uuid"] = $myuuid;
@@ -69,23 +67,22 @@ if (isset($_POST["playerName"])){
 
 
     if (mysqli_stmt_execute($statement)) {
+        $url = 'https://oweek.flinderscybersociety.org/api/board-change.php';
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, $url);
+        $data = curl_exec($curl);
         header("location: ../login.php"); //success, redirect to login page
         end();
-    }
-    else {
+    } else {
         header("location: ../index.php"); //failed to insert into db, return to index.php
         echo mysqli_error($conn);
         end();
     }
     mysqli_close($conn);
-
 }
 
 
-$url = 'http://localhost/o-week/src/api/board-change.php';
-$curl = curl_init();
-curl_setopt($curl, CURLOPT_URL, $url);
-$data = curl_exec($curl);
+
 
 
 

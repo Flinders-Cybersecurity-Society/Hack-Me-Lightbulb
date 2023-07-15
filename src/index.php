@@ -32,7 +32,7 @@ $_SESSION['loginAttempt'] = 'default';
               <h3 class="text-2xl font-medium leading-6 text-gray-900" id="modal-title">Flinders Cybersecurity Society O'Week Challenge</h3>
               <div class="mt-2">
                 <p class="text-lg text-gray-500">Welcome and thanks for joining, these challenges are meant to be a fun way to learn about some of the vulnerabilities in web applications! <br><br>
-                  This experience was created by <br><a class="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="https://www.linkedin.com/in/evan-sahlos-9b07941a9/" target="_blank">Evan Sahlos</a> &  <br><a class="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="https://www.linkedin.com/in/ahorwood/" target="_blank">Alistair Horwood</a></p>
+                  This experience was created by <br><a class="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="https://www.linkedin.com/in/evan-sahlos-9b07941a9/" target="_blank">Evan Sahlos</a> & <br><a class="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="https://www.linkedin.com/in/ahorwood/" target="_blank">Alistair Horwood</a></p>
               </div>
             </div>
           </div>
@@ -73,7 +73,7 @@ $_SESSION['loginAttempt'] = 'default';
                       <input type="text" name="playerName" id="usernameInput" required class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Extreme Hacker Person 4000">
                     </div>
                     <!-- sitekey: 0x4AAAAAAACf-Rp-1xKcOoEh (safe to expose to public) -->
-                    <div class="cf-turnstile inline-block pt-3" data-sitekey="1x00000000000000000000AA"></div>
+                    <div class="cf-turnstile inline-block pt-3" data-sitekey="0x4AAAAAAACf-Rp-1xKcOoEh"></div>
                     <button type="submit" id="submit-button" class="mt-5 sm:mt-6 inline-flex w-full justify-center rounded-md border border-transparent bg-[#22c55e] px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:text-sm">Get Started</button>
                   </form>
                 </div>

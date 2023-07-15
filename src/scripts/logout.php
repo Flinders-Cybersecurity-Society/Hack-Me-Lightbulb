@@ -9,6 +9,3 @@ $_SESSION['loggedin'] = false;
 
 
 header("Location: ../login.php");
-
-
-?>

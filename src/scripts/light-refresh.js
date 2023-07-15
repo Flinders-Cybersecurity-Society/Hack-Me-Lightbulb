@@ -1,6 +1,6 @@
 var element = document.getElementById('update-version');
 current_id = (element.textContent.trim());
-console.log("I am " . current_id);
+console.log("I am ".current_id);
 
 
 
@@ -17,27 +17,27 @@ console.log("I am " . current_id);
 
 
 async function foo() {
-    let obj;
-  
-    const res = await fetch('http://localhost/o-week/src/api/light-query.php')
-  
-    obj = await res.json();
-  
-    Number(obj);
-    if (obj > current_id) {
-        console.log("New version available");
-        location.reload(); 
-    } else {
-        console.log("No new version available");
-    }
+  let obj;
+
+  const res = await fetch('https://oweek.flinderscybersociety.org/api/light-query.php')
+
+  obj = await res.json();
+
+  Number(obj);
+  if (obj > current_id) {
+    console.log("New version available");
+    location.reload();
+  } else {
+    console.log("No new version available");
   }
+}
 
 
-  const interval = setInterval(function() {
-    foo();
+const interval = setInterval(function () {
+  foo();
 
-  }, 300);
- 
+}, 300);
+
 
 
 

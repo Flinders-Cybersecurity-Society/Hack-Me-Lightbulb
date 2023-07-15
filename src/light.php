@@ -1,4 +1,5 @@
 <?php 
+header("Access-Control-Allow-Origin: *");
 require_once "scripts/dbconn.php";
     $sql2 = 'SELECT * FROM api WHERE item = "light" ORDER BY id DESC LIMIT 0, 1;';
 
@@ -17,5 +18,3 @@ require_once "scripts/dbconn.php";
     echo '<p id = "update-version" class="text-white">' . $row2['id'] . '</p>';
     mysqli_close($conn);
     echo '<script type="text/javascript" src="scripts/light-refresh.js"></script>';
-    
-?>
