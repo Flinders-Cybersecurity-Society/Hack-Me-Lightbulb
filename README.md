@@ -1,14 +1,26 @@
 # Hack Me Light Bulb / O-Week
 
 # Table of Contents
+- [Hack Me Light Bulb / O-Week](#hack-me-light-bulb---o-week)
+- [Table of Contents](#table-of-contents)
+- [Tech Used](#tech-used)
+- [Production Install Guide](#production-install-guide)
+    + [Some things you'll need to have setup / access to will be:](#some-things-you-ll-need-to-have-setup---access-to-will-be-)
+  * [Creating the Web Server](#creating-the-web-server)
+  * [Logging into the Web Server & Installing Required Software](#logging-into-the-web-server---installing-required-software)
+  * [Adding a Domain Name and SSL/HTTPS Setup](#adding-a-domain-name-and-ssl-https-setup)
+  * [Moving Web Files onto the server](#moving-web-files-onto-the-server)
+- [Development Guide](#development-guide)
+
 
 # Tech Used
-- Cloud Provider (Oracle Cloud Used. others include; AWS, Google Cloud, IBM Cloud, Azure)
+- Cloud Provider ([Oracle Cloud Recommended](https://www.oracle.com/au/cloud/). others include; AWS, Google Cloud, IBM Cloud, Azure)
 - LAMP Stack
     - Linux (Ubuntu Server 22.04.* LTS)
     - Apache
     - MySQL
     - PHP (8.1.2-1ubuntu2.13)
+- [Certbot](https://certbot.eff.org/)
 - [Tailwindcss](https://tailwindcss.com/docs/installation)
     - Page styling and use of prebuilt elements (table, header)
 - [Cloudflare Turnstile](https://developers.cloudflare.com/turnstile/)
@@ -28,37 +40,37 @@ This guide will take you through setting up a web server to host a production re
 
 1. Within your cloud provider, create an web instance
 
-![Alt text](image.png)
-![Alt text](image-1.png)
+![Alt text](guide-files/image.png)
+![Alt text](guide-files/image-1.png)
 
-2. Select Ubuntu as the image (22.04 is supported by security updates until April 2032)
+2. Select Ubuntu as the guide-files/image (22.04 is supported by security updates until April 2032)
 
-![Alt text](image-2.png)
+![Alt text](guide-files/image-2.png)
 
 3. (optional) For a free service with Oracle Cloud, change the shape to a Virtual Machine with Ampere Processor
 
-![Alt text](image-3.png)
+![Alt text](guide-files/image-3.png)
 
 4. Select CPUs & RAM (2022 - 2023 Server had 1 OCPU and 6GB of RAM)
 
-![Alt text](image-4.png)
+![Alt text](guide-files/image-4.png)
 
 5. Download both Private and Public SSH Keys (this will be used later for connecting to the server, DONT LOOSE THESE FILES)
 
-![Alt text](image-5.png)
+![Alt text](guide-files/image-5.png)
 
 6. Create Instance (rest of the default settings are fine, we want a public IP address)
 
 7. Wait for instance to start
 
-![Alt text](image-6.png)
+![Alt text](guide-files/image-6.png)
 
 ## Logging into the Web Server & Installing Required Software
 1. Open up a terminal and with the IP address and username from the cloud provider
 ```
 ssh username@IPADDRESS -i "PRIVATEKEYLOCATION.key"
 ```
-![Alt text](image-7.png)
+![Alt text](guide-files/image-7.png)
 
 2. Update the instance (updates everything and automatically says yes to all recommended updates)
 ```
@@ -86,7 +98,7 @@ sudo reboot
 
 7. Wait a few mins for instance to start again
 8. Try going to the IP address in the web browser (HTTP ONLY)
-![Alt text](image-9.png)
+![Alt text](guide-files/image-9.png)
 - you should see a page as show above
 - don't proceed if you dont get this page
 - could be problems with the firewall, apache2 not being installed correctly, firewall rules on the cloud provider
@@ -142,6 +154,56 @@ sudo nano /etc/apache2/mods-enabled/dir.conf
 16. Restart Apache
 ```
 sudo systemctl restart apache2
+```
+
+## Adding a Domain Name and SSL/HTTPS Setup
+17. Add DNS Record to DNS Provider
+- We use cloudflare
+- Login and select flinderscybersociety.org
+- add A record using the config options below
+
+![Alt text](guide-files/image-10.png)
+
+18. Check if going to the domain makes you go to the webserver eg: [beta-oweek.flinderscybersociety.org](http://beta-oweek.flinderscybersociety.org)
+
+
+17. Get SSL Setup using certbot
+```
+sudo apt update
+sudo apt install snapd
+sudo snap install --classic certbot
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+sudo certbot --apache
+```
+
+18. Fill out the questions cert bot asks, pretty easy. If any issues restart with ```sudo certbot --apache```
+
+![Alt text](guide-files/image-11.png)
+
+19. Go to website and check that it has redirected to https:// and that we have the lock icon in the browser
+
+![Alt text](guide-files/image-12.png)
+
+## Moving Web Files onto the server
+
+
+20. Move into the web directory on the server ```cd /var/www/html```
+21. Remove all files in this folder ```sudo rm *```
+    - MAKE SURE THAT YOU ARE IN THE FOLDER AS LISTED ABOVE
+
+22. Go to https://github.com/Flinders-Cybersecurity-Society/Hack-Me-Lightbulb/releases and right click the release.zip file and copy the link
+
+
+
+23. `cd` to move back to the home directory
+
+23. Run ``wget https://github.com/Flinders-Cybersecurity-Society/Hack-Me-Lightbulb/releases/download/releases/release.zip`` (with the copied link)
+
+24. Install unzip, extract the file and move to web servers directory
+```
+sudo apt-get install unzip
+unzip release.zip
+sudo mv src/* /var/www/html/
 ```
 
 
