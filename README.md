@@ -1,4 +1,14 @@
 # Hack Me Light Bulb / O-Week
+<p align="center">
+  <img width="auto" height="500px" src="guide-files/header.png">
+</p>
+
+### Created by:
+- [Evan Sahlos](https://www.linkedin.com/in/evan-sahlos-9b07941a9/)
+- & [Alistair Horwood](https://www.linkedin.com/in/ahorwood/)
+
+
+
 
 # Table of Contents
 - [Hack Me Light Bulb / O-Week](#hack-me-light-bulb---o-week)
@@ -15,12 +25,12 @@
 
 # Tech Used
 - Cloud Provider ([Oracle Cloud Recommended](https://www.oracle.com/au/cloud/). others include; AWS, Google Cloud, IBM Cloud, Azure)
-- LAMP Stack
+- [LAMP Stack](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04#installing-php-extensions-optional)
     - Linux (Ubuntu Server 22.04.* LTS)
     - Apache
     - MySQL
     - PHP (8.1.2-1ubuntu2.13)
-- [Certbot](https://certbot.eff.org/)
+- [Certbot](https://certbot.eff.org/) by EFF
 - [Tailwindcss](https://tailwindcss.com/docs/installation)
     - Page styling and use of prebuilt elements (table, header)
 - [Cloudflare Turnstile](https://developers.cloudflare.com/turnstile/)
