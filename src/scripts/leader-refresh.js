@@ -18,7 +18,9 @@ current_id = (element.textContent.trim());
 async function foo() {
   let obj;
 
-  const res = await fetch('https://oweek.flinderscybersociety.org/api/board-refresh.php')
+  // const res = await fetch('http://oweek.flinderscybersociety.org/api/board-refresh.php')
+  const res = await fetch('http://localhost/Hack-Me-Lightbulb/src/api/board-refresh.php')
+
 
   obj = await res.json();
 

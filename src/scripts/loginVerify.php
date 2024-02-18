@@ -25,10 +25,13 @@ if (isset($_POST["usernameInput"])) {
         $_SESSION["username"] = $username;
         $_SESSION["loggedin"] = true;
 
+        $_SESSION["solved_challenge_1"] = 1;
 
 
-        $updateDate = GETDATE();
-        $check =  1;
+
+
+
+        $check = 1;
 
         $sql = "UPDATE players SET task1 = '1', last_updated = CURRENT_TIMESTAMP WHERE uuid = '" . $_SESSION["uuid"] . "';";
         echo $sql;
@@ -60,10 +63,13 @@ if (isset($_POST["usernameInput"])) {
         //can be used by an sql statement to id the user
 
 
-    } else if (str_contains($username, "OR 1=1") == true || str_contains($username,  "OR 1==1") == true) {
+        // } else if (str_contains($username, "OR 1=1") == true || str_contains($username,  "OR 1==1") == true) {
+    } else if (strpos($username, "OR 1=1") !== false || strpos($username, "OR 1==1") !== false) {
+
 
         $_SESSION["username"] = $username;
         $_SESSION["loggedin"] = true;
+        $_SESSION["solved_challenge_3"] = 1;
 
 
         $sql = "UPDATE players SET task3 = '1', last_updated = CURRENT_TIMESTAMP WHERE uuid = '" . $_SESSION["uuid"] . "';";

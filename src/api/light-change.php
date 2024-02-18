@@ -14,7 +14,7 @@ else if (isset($_GET["lightOff"])){
     $sql = $sql_off;
 }
 else{
-    header("location: ../light-control.php");
+    header("location: ../light-control.php?redirect=1");
 }
 
 $statement = mysqli_stmt_init($conn);
@@ -24,5 +24,5 @@ mysqli_stmt_execute($statement);
 
 mysqli_close($conn);
 
-header("location: ../light-control.php");
+header("location: ../light-control.php?redirect=1");
 ?>

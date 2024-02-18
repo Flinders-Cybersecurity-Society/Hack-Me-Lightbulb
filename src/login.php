@@ -24,6 +24,7 @@ error_reporting(E_ALL);
     if (isset($_GET["loggedin"])) {
         if (($_GET["loggedin"]) == "true") {
             $_SESSION['loggedin'] = true;
+            $_SESSION["solved_challenge_2"] = 1;
             $sql = "UPDATE players SET task2 = '1', last_updated = CURRENT_TIMESTAMP WHERE uuid = '" . $_SESSION["uuid"] . "';";
             //echo "<br>" . $sql . "<br>";
             $statement = mysqli_stmt_init($conn);

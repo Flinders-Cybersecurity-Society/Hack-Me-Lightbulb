@@ -104,7 +104,8 @@
     </div>
 
 
-    <?php echo '<p id = "update-version" class="text-white">' . $row2['id'] . '</p>';
+    <?php 
+    // echo '<p id = "update-version" class="text-white">' . $row2['id'] . '</p>';
 
     echo '<script type="text/javascript" src="scripts/leader-refresh.js"></script>'; ?>
     <script>

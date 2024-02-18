@@ -65,6 +65,9 @@ if (isset($_POST["playerName"])) {
     mysqli_stmt_prepare($statement, $sql);
     mysqli_stmt_bind_param($statement, 'ss', htmlspecialchars($_POST["playerName"]), $myuuid);
 
+    $_SESSION["solved_challenge_1"] = 0;
+    $_SESSION["solved_challenge_2"] = 0;
+    $_SESSION["solved_challenge_3"] = 0;
 
     if (mysqli_stmt_execute($statement)) {
         $url = 'https://oweek.flinderscybersociety.org/api/board-change.php';

@@ -11,8 +11,10 @@ if (session_status() === PHP_SESSION_NONE) {
 if (!isset($_SESSION['loggedin'])) {
   $_SESSION['loggedin'] = false;
 }
-
-
+// echo "game status";
+// echo $_SESSION["solved_challenge_1"];
+// echo $_SESSION["solved_challenge_2"];
+// echo $_SESSION["solved_challenge_3"];
 ?>
 
 <header class="bg-indigo-600">
